@@ -1,0 +1,43 @@
+type Asset @entity {
+  id: ID!
+  assetId: String!
+  token: Bytes!
+  totalMinted: BigInt!
+  totalBurned: BigInt!
+  mints: [MintEvent!]! @derivedFrom(field: "asset")
+}
+
+type MintEvent @entity {
+  id: ID!
+  asset: Asset!
+  issuer: Bytes!
+  to: Bytes!
+  amount: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type BurnEvent @entity {
+  id: ID!
+  asset: Asset!
+  from: Bytes!
+  amount: BigInt!
+  timestamp: BigInt!
+}
+
+type VaultDeposit @entity {
+  id: ID!
+  user: Bytes!
+  assets: BigInt!
+  shares: BigInt!
+  timestamp: BigInt!
+}
+
+type GovernanceProposal @entity {
+  id: ID!
+  proposer: Bytes!
+  description: String!
+  state: String!
+  forVotes: BigInt!
+  againstVotes: BigInt!
+}

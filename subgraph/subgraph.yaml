@@ -1,0 +1,31 @@
+specVersion: 1.0.0
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RWACollateralToken
+    network: arbitrum-sepolia
+    source:
+      address: "{{RWACollateralToken}}"
+      abi: RWACollateralToken
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Asset
+        - MintEvent
+        - BurnEvent
+        - VaultDeposit
+      abis:
+        - name: RWACollateralToken
+          file: ../out/RWACollateralToken.sol/RWACollateralToken.json
+        - name: RWAYieldVault
+          file: ../out/RWAYieldVault.sol/RWAYieldVault.json
+      eventHandlers:
+        - event: Minted(indexed address,indexed address,uint256)
+          handler: handleMinted
+        - event: Burned(indexed address,uint256)
+          handler: handleBurned
+      file: ./src/mapping.ts
