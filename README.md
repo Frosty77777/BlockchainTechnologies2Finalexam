@@ -1,14 +1,7 @@
-# RWA Tokenization Platform (Option C)
+# RWA Tokenization Platform
 
 Production-grade capstone for **Blockchain Technologies 2**: ERC-20 collateral-backed tokens, ERC-4626 yield vault, Chainlink price feeds / Proof of Reserve, role-gated issuer minting, OpenZeppelin Governor + Timelock, constant-product AMM, L2 deployment on **Arbitrum Sepolia** (also supports Base / Optimism Sepolia).
 
-## Team ownership (fill in)
-
-| Member | Area |
-|--------|------|
-| TBD | Smart contracts & Foundry tests |
-| TBD | Governance, oracles, deployment |
-| TBD | Frontend, subgraph, docs |
 
 ## Quick start
 
